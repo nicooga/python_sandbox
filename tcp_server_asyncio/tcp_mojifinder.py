@@ -13,7 +13,13 @@ async def supervisor(host, port) -> None:
 
     print(f'Listening on {addr}')
 
-    await server.serve_forever()
+    try:
+        await server.serve_forever()
+    except asyncio.CancelledError:
+        print('Received cancellation signal. Shutting down...')
+    finally:
+        server.close()
+        await server.wait_closed()
 
 PROMPT = '?> '
 
