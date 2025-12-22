@@ -12,8 +12,10 @@ Example implementation of an asynchronous TCP server using Python's `asyncio` mo
 
 ## Usage
 
+Run from the project root directory:
+
 ```bash
-python tcp_mojifinder.py
+python -m tcp_server_asyncio.tcp_mojifinder
 ```
 
 The server listens on `127.0.0.1:8000` by default. Connect using `telnet` or `nc`:
