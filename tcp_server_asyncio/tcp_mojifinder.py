@@ -1,6 +1,6 @@
 import asyncio
 
-from emojiindex import EmojiInvertedIndex
+from misc.emojiindex import EmojiInvertedIndex
 
 async def supervisor(host, port) -> None:
     server = await asyncio.start_server(
@@ -55,3 +55,4 @@ async def finder(
 
 if __name__ == '__main__':
     asyncio.run(supervisor('127.0.0.1', 8000))
+

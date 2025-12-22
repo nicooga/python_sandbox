@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
-from emojiindex import EmojiInvertedIndex
+from misc.emojiindex import EmojiInvertedIndex
 
 STATIC_PATH = Path(__file__).parent.absolute() / 'static'
 
@@ -33,3 +33,4 @@ async def search(q: str):
 async def form():
     # return app.state.form
     return (STATIC_PATH / 'form.html').read_text()
+
