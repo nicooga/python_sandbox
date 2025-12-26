@@ -1,15 +1,5 @@
 # TCP Server with asyncio
 
-Example implementation of an asynchronous TCP server using Python's `asyncio` module.
-
-## Concepts Demonstrated
-
-- `asyncio.start_server()` for creating TCP servers
-- `StreamReader` and `StreamWriter` for async I/O
-- Connection handling with proper cleanup using try/finally
-- `await writer.drain()` to ensure data is sent
-- Handling client disconnections and encoding errors
-
 ## Usage
 
 Run from the project root directory:

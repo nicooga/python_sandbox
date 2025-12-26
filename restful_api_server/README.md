@@ -1,15 +1,5 @@
 # RESTful API Server
 
-Example implementation of a RESTful web API using FastAPI.
-
-## Concepts Demonstrated
-
-- FastAPI application setup and routing
-- Pydantic models for request/response validation
-- Async route handlers
-- HTML response serving
-- Application state management
-
 ## Requirements
 
 ```bash
