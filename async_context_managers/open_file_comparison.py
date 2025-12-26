@@ -1,5 +1,6 @@
 import asyncio
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import AsyncGenerator
 
 
@@ -75,20 +76,22 @@ def open_file_generator_based(filename: str, mode: str = 'r'):
 
 
 async def main():
+    test_file = str(Path(__file__).parent / 'test_file.txt')
+
     print("Using @asynccontextmanager decorator")
-    async with open_file_decorated('test_file.txt') as file:
+    async with open_file_decorated(test_file) as file:
         loop = asyncio.get_event_loop()
         content = await loop.run_in_executor(None, file.read)
         print(f'Content: {content}')
 
     print("Using manual class-based implementation")
-    async with open_file_manual('test_file.txt') as file:
+    async with open_file_manual(test_file) as file:
         loop = asyncio.get_event_loop()
         content = await loop.run_in_executor(None, file.read)
         print(f'Content: {content}')
 
     print("Using generator-based manual implementation")
-    async with open_file_generator_based('test_file.txt') as file:
+    async with open_file_generator_based(test_file) as file:
         loop = asyncio.get_event_loop()
         content = await loop.run_in_executor(None, file.read)
         print(f'Content: {content}')
