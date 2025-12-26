@@ -17,7 +17,7 @@ async def multi_probe(domains: Iterable[str]) -> AsyncIterator[Result]:
 async def probe(
     domain: str,
     loop: Optional[asyncio.AbstractEventLoop] = None
-) -> AsyncIterator[Result]:
+) -> Result:
     if loop is None:
         loop = asyncio.get_event_loop()
 
