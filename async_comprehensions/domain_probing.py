@@ -34,6 +34,21 @@ async def main():
 
     print_separator()
 
+
+    # async/await can be used in dict comprehension expressions too:
+    found_domains = {
+        result.domain: result.found
+        async for result in (await probe(domain) for domain in DOMAINS)
+    }
+
+    print(f"Dict comprehension result: {found_domains}")
+
+    print_separator()
+
+    # ... and set comprehension expressions too:
+    found_domains = {result.domain async for result in (await probe(domain) for domain in DOMAINS) if result.found}
+    print(f"Set comprehension result: {found_domains}")
+
 def print_separator():
     print("-" * 80)
     print()
