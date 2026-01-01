@@ -1,5 +1,7 @@
 from collections import namedtuple
 
+# namedtuple is a class that creates a new class from a tuple.
+# Useful when defining a simple data class with no additional methods.
 Card = namedtuple('Card', ['rank', 'suit'])
 
 class FrenchDeck:
@@ -24,3 +26,10 @@ class FrenchDeck:
     # Usage: deck[0]
     def __getitem__(self, position):
         return self._cards[position]
+
+if __name__ == '__main__':
+    # Because FrenchDeck is a sequence, we can use the choice function to randomly select a card.
+    # No need to implement .pick() method ourselves.
+    from random import choice
+    deck = FrenchDeck()
+    print(choice(deck))
